@@ -162,6 +162,8 @@ The workflow will also update the SVG automatically according to the schedule yo
   env:
     GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
 ```
+For a complete workflow example including automatic updates and committing the generated SVG, see: <br>
+➡️ [example/workflow.yml](./example/workflow.yml)
 
 ---
 
