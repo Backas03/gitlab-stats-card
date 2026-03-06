@@ -5,12 +5,10 @@ inputs:
   gitlab_username:
     description: GitLab username
     required: true
-
   gitlab_base_url:
     description: GitLab base URL
     required: false
     default: https://gitlab.com
-
   output_path:
     description: Output SVG path
     required: false
@@ -24,8 +22,6 @@ runs:
       with:
         distribution: temurin
         java-version: "21"
-        cache: maven
-        cache-dependency-path: ${{ github.action_path }}/pom.xml
 
     - name: Build and run generator
       shell: bash
