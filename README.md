@@ -2,10 +2,12 @@
 
 Generate a **GitLab stats SVG card** for your **GitHub profile README** using GitHub Actions.
 
-No server required. The SVG is generated directly inside your repository.
+GitLab stats card generator for GitHub profile README.  
+Works with GitLab.com and self-hosted GitLab, and generates an SVG card using GitHub Actions.
+
+No server required. The SVG is generated directly inside your repository. 
 
 ![Preview](./preview/gitlab-stats.svg)
-
 
 ## Features
 
