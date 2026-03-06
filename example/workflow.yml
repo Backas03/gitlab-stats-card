@@ -26,7 +26,7 @@ jobs:
 
       - name: Commit updated SVG
         run: |
-          git add assets/gitlab-stats.svg
+          git add .
 
           if git diff --cached --quiet; then
             echo "No changes"
@@ -38,3 +38,4 @@ jobs:
 
           git commit -m "chore: update GitLab stats card"
           git push
+
