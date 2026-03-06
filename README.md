@@ -153,20 +153,6 @@ The workflow will also update the SVG automatically according to the schedule yo
 
 ---
 
-## Example
-
-```yaml
-- uses: Backas03/gitlab-stats-card@v1
-  with:
-    gitlab_username: backas
-  env:
-    GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-```
-For a complete workflow example including automatic updates and committing the generated SVG, see: <br>
-➡️ [example/workflow.yml](./example/workflow.yml)
-
----
-
 ## How It Works
 
 ```
