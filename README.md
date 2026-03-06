@@ -109,6 +109,29 @@ jobs:
 ```
 
 ---
+### 4️⃣ Run the workflow
+
+Go to the **Actions** tab in your repository and run the workflow once.
+
+```
+Actions → Update GitLab Stats → Run workflow
+```
+
+After the workflow finishes, the SVG file will be generated at:
+
+```
+assets/gitlab-stats.svg
+```
+
+If your README contains:
+
+```md
+![GitLab Stats](./assets/gitlab-stats.svg)
+```
+
+the GitLab stats card will appear automatically.
+
+The workflow will also update the SVG automatically according to the schedule you configured.
 
 ---
 
@@ -165,9 +188,3 @@ README displays the card
 - GitLab API limits may affect stats accuracy.
 - Commit count is calculated from push events.
 - The card updates whenever the workflow runs.
-
----
-
-## License
-
-MIT License
