@@ -24,7 +24,6 @@ runs:
       with:
         distribution: temurin
         java-version: "21"
-        cache: maven
 
     - name: Build and run generator
       shell: bash
