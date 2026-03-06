@@ -1,0 +1,40 @@
+name: Update GitLab Stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate GitLab stats card
+        uses: Backas03/gitlab-stats-card@v1
+        with:
+          gitlab_username: backas
+          gitlab_base_url: https://gitlab.com
+          output_path: assets/gitlab-stats.svg
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+
+      - name: Commit updated SVG
+        run: |
+          git add assets/gitlab-stats.svg
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "chore: update GitLab stats card"
+          git push
