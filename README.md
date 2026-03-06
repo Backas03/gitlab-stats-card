@@ -1,13 +1,17 @@
 # GitLab Stats Card
+![GitHub stars](https://img.shields.io/github/stars/Backas03/gitlab-stats-card)
+![GitHub license](https://img.shields.io/github/license/Backas03/gitlab-stats-card)
+![GitHub last commit](https://img.shields.io/github/last-commit/Backas03/gitlab-stats-card)
+
+GitLab stats card generator for GitHub profile README.
 
 Generate a **GitLab stats SVG card** for your **GitHub profile README** using GitHub Actions.
 
-GitLab stats card generator for GitHub profile README.  
 Works with GitLab.com and self-hosted GitLab, and generates an SVG card using GitHub Actions.
 
 No server required. The SVG is generated directly inside your repository. 
 
-![Preview](./preview/gitlab-stats.svg)
+![Preview](https://raw.githubusercontent.com/Backas03/gitlab-stats-card/master/preview/gitlab-stats.svg)
 
 ## Features
 
