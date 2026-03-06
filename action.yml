@@ -1,0 +1,34 @@
+name: GitLab Stats Card
+description: Generate a GitLab stats card SVG for your GitHub profile README using GitHub Actions.
+
+inputs:
+  gitlab_username:
+    description: GitLab username
+    required: true
+  gitlab_base_url:
+    description: GitLab base URL
+    required: false
+    default: https://gitlab.com
+  output_path:
+    description: Output SVG path
+    required: false
+    default: assets/gitlab-stats.svg
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: "21"
+        cache: maven
+
+    - name: Generate GitLab stats card
+      shell: bash
+      run: mvn -q -DskipTests compile exec:java
+      env:
+        GITLAB_USERNAME: ${{ inputs.gitlab_username }}
+        GITLAB_BASE_URL: ${{ inputs.gitlab_base_url }}
+        OUTPUT_PATH: ${{ inputs.output_path }}
+        GITLAB_TOKEN: ${{ env.GITLAB_TOKEN }}
