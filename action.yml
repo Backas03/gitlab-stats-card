@@ -5,10 +5,12 @@ inputs:
   gitlab_username:
     description: GitLab username
     required: true
+
   gitlab_base_url:
     description: GitLab base URL
     required: false
     default: https://gitlab.com
+
   output_path:
     description: Output SVG path
     required: false
@@ -17,16 +19,16 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Set up Java
+    - name: Setup Java
       uses: actions/setup-java@v4
       with:
         distribution: temurin
         java-version: "21"
         cache: maven
 
-    - name: Generate GitLab stats card
+    - name: Build and run generator
       shell: bash
-      run: mvn -q -DskipTests compile exec:java
+      run: mvn -q -B -DskipTests -f "${{ github.action_path }}/pom.xml" compile exec:java
       env:
         GITLAB_USERNAME: ${{ inputs.gitlab_username }}
         GITLAB_BASE_URL: ${{ inputs.gitlab_base_url }}
